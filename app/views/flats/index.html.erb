@@ -1,0 +1,34 @@
+<!-- app/views/layouts/application.html.erb -->
+<head>
+  <!-- Add these line for detecting device width -->
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+
+  <!-- [...] -->
+</head>
+
+
+<body>
+  <h1 class="allflats">All our flats (<%= @flats.count %>)</h1>
+  <div class="row">
+    <div class="col 12 card-container">
+      <% @flats.each do |flat| %>
+        <div class="card-apt-info">
+          <div class="card-apt">
+            <h3><%= flat.name  %></h3>
+            <p><%= flat.address %></p>
+            <div class="card-numeric-info">
+              <i class="fas fa-user-friends"></i>
+              <p> <%= flat.number_of_guests %></p>
+              <i class="fas fa-euro-sign"></i>
+              <p><%= flat.price_per_night %></p>
+            </div>
+          </div>
+          <div class="card-more-info">
+            <p>More info</p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  </div>
+</body>
